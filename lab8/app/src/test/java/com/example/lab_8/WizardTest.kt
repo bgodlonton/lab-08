@@ -46,4 +46,19 @@ class WizardTest {
 
         assertEquals(70, evilWizard.mana)
     }
+
+    @Test
+    fun trainSpellPower_manaExceedsMinimumThreshold_spellPowerIncreased() {
+        evilWizard.train()
+
+        assertEquals(11, evilWizard.spellPower)
+    }
+
+    @Test
+    fun trainSpellPower_manaBelowMinimumThreshold_spellPowerRemains() {
+        evilWizard.mana = 0
+        evilWizard.train()
+
+        assertEquals(10, evilWizard.spellPower)
+    }
 }
